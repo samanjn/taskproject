@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh '''
                 export KUBECONFIG=$KUBECONFIG_FILE
-                mkdir -p ~/.kube
+                mkdir -p ${env.WORKSPACE}/.kube
                 cp $CLIENT_CRT ${env.WORKSPACE}/.kube/client.crt
                 cp $CLIENT_KEY ${env.WORKSPACE}/.kube/client.key
                 cp $CA_CRT ${env.WORKSPACE}/.kube/ca.crt
