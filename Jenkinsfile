@@ -15,7 +15,7 @@ pipeline {
         stage('Install Terraform') {
             steps {
                 sh '''
-                curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64
+                curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64"
                 chmod +x terraform_1.10.2_linux_arm64
                 '''
             }
