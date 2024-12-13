@@ -8,14 +8,14 @@ pipeline {
             steps {
                 sh '''
                 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
-                chmod +x ./kubectl
+                chmod u+x ./kubectl
                 '''
             }
         }
         stage('show get pods') {
             steps {
                 withKubeConfig([credentialsId: "credentialsId", serverUrl: 'https://127.0.0.1:51455']) {
-                    sh 'kubectl get pods'
+                    sh './kubectl get pods'
                 }
             }
         }
