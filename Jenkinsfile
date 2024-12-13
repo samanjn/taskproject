@@ -1,18 +1,15 @@
 pipeline {
     agent any
-
+    environment {
+        KUBECONFIG_FILE = credentials('kubeconfig-id') // Credential ID for Secret File
+    }
     stages {
-        // stage('Clone Repository') {
-        //     steps {
-        //         // Checkout the repository
-        //         git branch: 'main', url: 'https://github.com/samanjn/taskproject.git'
-        //     }
-        // }
-        
-        stage('Echo File Content') {
+        stage('Deploy') {
             steps {
-                // Print the content of a specific file
-                sh 'echo testfile'
+                sh """
+                export KUBECONFIG=\$KUBECONFIG_FILE
+                kubectl get pods
+                """
             }
         }
     }
