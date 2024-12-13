@@ -24,13 +24,13 @@ pipeline {
         stage('show get pods') {
             steps {
                 withKubeConfig([credentialsId: "credentialsId", serverUrl: 'https://192.168.49.2:8443']) {
-                    sh './kubectl get pods'
+                    sh 'sudo ./kubectl get pods'
                 }
             }
         }
         stage('show terraform version') {
             steps {
-                sh './terraform -version'
+                sh 'sudo ./terraform -version'
             }
         }
     }
