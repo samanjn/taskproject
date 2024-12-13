@@ -20,9 +20,9 @@ pipeline {
                 sh '''
                 export KUBECONFIG=$KUBECONFIG_FILE
                 mkdir -p ~/.kube
-                cp $CLIENT_CRT ~/.kube/client.crt
-                cp $CLIENT_KEY ~/.kube/client.key
-                cp $CA_CRT ~/.kube/ca.crt
+                cp $CLIENT_CRT ${env.WORKSPACE}/.kube/client.crt
+                cp $CLIENT_KEY ${env.WORKSPACE}/.kube/client.key
+                cp $CA_CRT ${env.WORKSPACE}/.kube/ca.crt
                 ./kubectl get pods
                 '''
             }
