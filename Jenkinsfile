@@ -30,7 +30,7 @@ pipeline {
         }
         stage('show terraform version') {
             steps {
-                sh './terraform_1.10.2_linux_arm64 -version'
+                sh './terraform -version'
             }
         }
     }
