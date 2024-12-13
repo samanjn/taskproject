@@ -15,11 +15,8 @@ pipeline {
         stage('Install Terraform') {
             steps {
                 sh '''
-                sudo apt-get update
-                sudo apt-get install -y unzip
-                curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64.zip"
-                unzip terraform_1.10.2_linux_arm64.zip
-                chmod +x terraform
+                curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64
+                chmod +x terraform_1.10.2_linux_arm64
                 '''
             }
         }
@@ -32,7 +29,7 @@ pipeline {
         }
         stage('show terraform version') {
             steps {
-                sh './terraform -version'
+                sh './terraform_1.10.2_linux_arm64 -version'
             }
         }
     }
