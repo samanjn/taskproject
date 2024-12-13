@@ -19,7 +19,7 @@ pipeline {
                 }
             }
         }
-        stage('show get pods') {
+        stage('show terraform version') {
             steps {
                 sh 'terraform -version'
             }
