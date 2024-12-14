@@ -15,6 +15,8 @@ pipeline {
         stage('Install Terraform') {
             steps {
                 sh '''
+                apt-get update
+                apt-get install -y unzip
                 curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64.zip"
                 /usr/bin/unzip terraform_1.10.2_linux_arm64.zip
                 chmod +x ./terraform
