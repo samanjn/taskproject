@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh '''
                 curl -LO "https://releases.hashicorp.com/terraform/1.10.2/terraform_1.10.2_linux_arm64.zip"
-                unzip terraform_1.10.2_linux_arm64.zip
+                /usr/bin/unzip terraform_1.10.2_linux_arm64.zip
                 chmod +x ./terraform
                 '''
             }
